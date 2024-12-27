@@ -1,0 +1,454 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Patrick+Hand&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tiny5&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Disable selection globally */
+* {
+  user-select: none; /* Prevent text/image selection */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none; /* For Internet Explorer/Edge */
+}
+
+
+.landing-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+.center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 0%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.carousel-items {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    /* Remove margin and use transform in JS for precise positioning */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+
+.enter-button {
+    padding: 1rem 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    background: none;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.enter-button:hover {
+    background: #000;
+    color: #fff;
+}
+
+.Head{
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+}
+
+.logo{
+    width: 45%;
+    height: 35%;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+   bottom: 5%;
+   overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    font-family: "Josefin Sans", serif;
+    float: right;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+/* Apply transition to opacity */
+.carousel-container, .landing-container {
+    transition: opacity 2s ease;
+}
+
+/* Add fade-out effect on .carousel-container and .landing-container when triggered */
+.carousel-container, .landing-container {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.slider-container {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-images {
+  display: flex;
+  align-items: center;
+  gap: 2%;
+}
+
+.slider-images img {
+  width: 100%;
+  height: 100%;
+  object-fit:none;
+  border-radius: 6px;
+}
+
+.slider-img {
+  width: clamp(8rem, 10vw, 120px);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.7s ease, width 0.7s ease, height 0.7s ease;
+}
+
+.slider-img.active {
+  transform: scale(1.3); /* Slightly enlarges the selected image */
+  z-index: 1; /* Ensures the active image appears on top */
+  width: clamp(35rem, 55vw, 850px) !important; /* Larger width for active image */
+  height: clamp(40rem, 75vh, 850px) !important; /* Larger height for active image */
+}
+
+.slider-img.active h1 {
+  display: none;
+}
+
+.slider-img.active .details p,
+.slider-img.active .details h2 {
+  display: block;
+}
+
+
+.slider-images .slider-img:first-child,
+.slider-images .slider-img:last-child {
+  height: clamp(20rem, 40vh, 480px);
+}
+
+.slider-images .slider-img:nth-child(2),
+.slider-images .slider-img:nth-child(6) {
+  height: clamp(24rem, 50vh, 560px);
+}
+
+.slider-images .slider-img:nth-child(3),
+.slider-images .slider-img:nth-child(4),
+.slider-images .slider-img:nth-child(5) {
+  height: clamp(28rem, 60vh, 665px);
+}
+
+h1 {
+  font-family: "Jost", sans-serif;
+  font-size: clamp(2rem, 4vw, 40px);
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  transform: rotate(270deg);
+  transition: 0.7s ease;
+}
+
+.details {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+}
+
+.details h2 {
+  font-family: "Jost", sans-serif;
+  font-size: clamp(1.5rem, 2.5vw, 26px);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.5;
+  color: #000;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+
+.details p {
+  font-family: "Jost", sans-serif;
+  font-size: clamp(1rem, 2vw, 20px);
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.65;
+  color: #000;
+  text-transform: uppercase;
+  transition: 0.7s ease;
+  display: none;
+}
+
+.slider-img.active {
+  width: clamp(30rem, 50vw, 766px) !important;
+  height: clamp(35rem, 70vh, 750px) !important;
+}
+
+.slider-img.active h1 {
+  display: none;
+}
+
+.slider-img.active .details p,
+.slider-img.active .details h2 {
+  display: block;
+}
+
+.slider-container {
+  overflow: hidden; /* Ensure no overflow issues with scaling */
+}
+
+.slider-img {
+  transition: transform 0.3s ease, z-index 0.3s ease;
+  cursor: pointer;
+  position: relative; /* Ensure images respect z-index layering */
+}
+
+.slider-img.active {
+  transform: scale(1.3);
+  z-index: 10;
+}
+
+.slider-img:hover {
+  transform: scale(1.1); /* Optional: hover effect for better feedback */
+}
+
+
+.slider-img {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s ease;
+  cursor: pointer;
+  position: relative; /* Ensure images respect z-index layering */
+  opacity: 1;
+}
+
+.slider-img.active {
+  transform: scale(2);
+  z-index: 10;
+}
+
+.slider-img:hover {
+  transform: scale(1.1); /* Optional: hover effect for better feedback */
+}
+
+/* Sliding animations */
+.slider-img.slide-left {
+  animation: slide-left 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.slider-img.slide-right {
+  animation: slide-right 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%) scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%) scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* Keyframe animation for bobbing effect */
+@keyframes bobbing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes bobbing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply th
+
+/* Apply the bobbing effect to non-active images with different delays */
+.slider-img:not(.active) {
+  animation: bobbing 3s ease-in-out infinite;
+  animation-duration: 3s; /* Default duration */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  border-radius: 100px; /* Rounded corners for smoother edges */
+  opacity: 0.8; /* Slightly reduce opacity for non-active images */
+}
+
+/* Additional unique bobbing styles for each image */
+.slider-img:nth-child(1):not(.active) {
+  animation-delay: 0s; /* First image with no delay */
+}
+
+.slider-img:nth-child(2):not(.active) {
+  animation-delay: 0.5s; /* Second image with a 0.5s delay */
+}
+
+.slider-img:nth-child(3):not(.active) {
+  animation-delay: 1s; /* Third image with a 1s delay */
+}
+
+.slider-img:nth-child(4):not(.active) {
+  animation-delay: 1.5s; /* Fourth image with a 1.5s delay */
+}
+
+.slider-img:nth-child(5):not(.active) {
+  animation-delay: 2s; /* Fifth image with a 2s delay */
+}
+
+/* Message to show when zoomed in */
+.zoom-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show the message with animation */
+.zoom-message.show {
+  display: block;
+  opacity: 1;
+}
+
+.about-container {
+  display: flex;
+  height: 100vh;
+}
+
+.about-left {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #f4f4f4;
+}
+
+/* Image styling */
+.about-image {
+  width: 100%;
+  height: 100vh;
+  object-fit:cover;
+  display: flex;
+  transition: transform 0.3s ease; /* Smooth zoom transition */
+}
+
+/* Scroll zoom effect */
+.about-left img {
+  transition: transform 0.2s ease-in-out;
+  height: 100vh;
+}
+
+/* Styling for text content */
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 20px;
+}

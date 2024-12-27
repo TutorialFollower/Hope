@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Handwritten Hope</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/assets/Logo.jpg">
+    <style>
+      .slider-container {
+        margin-top: -50px; /* Adjust this value to move the slider up */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav">
+        <a class="active" href="/index.html">Contact</a>
+        <a href="index.html">Mission</a>
+        <a href="/about.html">About</a>
+        <a href="/main.html">Home</a>
+      </div>
+
+      <section class="slider-container">
+        <div class="slider-images">
+          <div class="slider-img">
+            <img src="/assets/mainsite/AB1.jpg" alt="1" />
+            <h1>Abigail</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Abigail</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="/assets/mainsite/AP1.jpg" alt="2" />
+            <h1>Ansh</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Ansh</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="/assets/mainsite/AP2.jpg" alt="3" />
+            <h1>Ansh</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Ansh</p>
+            </div>
+          </div>
+          <div class="slider-img active">
+            <img src="/assets/mainsite/AP3.jpg" alt="4" />
+            <h1>Ansh</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Ansh</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="/assets/mainsite/AY1.jpg" alt="5" />
+            <h1>Ayush</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Ayush</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="/assets/mainsite/CN1.jpg" alt="6" />
+            <h1>Catarina</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Catarina</p>
+            </div>
+          </div>
+          <div class="slider-img">
+            <img src="/assets/mainsite/CN2.jpg" alt="7" />
+            <h1>Catarina</h1>
+            <div class="details">
+              <h2>Letter By</h2>
+              <p>Catarina</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    <script src="/scripts/imagecarousel.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        $(".slider-img").on("click", function () {
+          $(".slider-img").removeClass("active");
+          $(this).addClass("active");
+        });
+      });
+    </script>
+  </body>
+</html>
